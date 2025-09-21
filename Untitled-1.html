@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daur Siklus Air</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f8ff;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      padding: 80px 50px 50px 50px;
+      background: url('bg1.jpg') no-repeat center center/cover;
+      color: #02466d;
+    }
+
+    .hero-text {
+      max-width: 50%;
+      margin-top: 25vh;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1s forwards;
+    }
+
+    .hero-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      background: linear-gradient(90deg, #0099ff, #00cc88, #ffaa33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .btn-mulai {
+      display: inline-block;
+      padding: 18px 50px;
+      background-color: #0077b6;
+      color: #fff;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1s 0.5s forwards;
+      cursor: pointer;
+    }
+
+    .btn-mulai:hover {
+      background-color: #005f8a;
+      transform: translateY(-3px);
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Video Section */
+    .video-section {
+      padding: 60px 20px;
+      background: #e6f7ff;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #0099ff, #04457e, #011c46);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .video-wrapper {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Info Section */
+    .info-section {
+      padding: 60px 30px;
+      background: #fdfdfd;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #0099ff, #1357eb, #01036b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .info-card {
+      background: #e6f7ff;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #024983;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card ul li {
+      font-size: 16px;
+      margin: 8px 0;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .info-card ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+
+    /* Daftar Pustaka */
+    .pustaka-section {
+      padding: 60px 40px;
+      background: #e6f0fa;
+    }
+
+    .pustaka-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #002b5b;
+    }
+
+    .pustaka-list {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .pustaka-list ol {
+      padding-left: 20px;
+    }
+
+    .pustaka-list li {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero-text h1 {
+        font-size: 50px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 30px;
+        height: 100vh;
+        align-items: center;
+      }
+      .hero-text {
+        max-width: 100%;
+        margin-top: 15vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Daur Siklus Air</h1>
+      <p>
+        Air adalah sumber kehidupan yang sangat penting bagi manusia, hewan, dan tumbuhan. 
+        Ketersediaan air di bumi diatur melalui suatu mekanisme alami yang disebut daur air 
+        (siklus hidrologi). Proses ini memungkinkan air untuk terus berputar dari bumi ke atmosfer 
+        dan kembali lagi, sehingga bumi tidak pernah kehabisan air.
+      </p>
+      <a href="#video" class="btn-mulai">Mulai Belajar</a>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section" id="video">
+    <h2>Video Penjelasan Siklus Air</h2>
+    <div class="video-wrapper">
+      <iframe 
+        src="https://drive.google.com/file/d/1omaN6JEexpLZll7TmVO2n-8tQyfwhLCm/preview" 
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <h2>Yuk Belajar Lebih Dalam!</h2>
+    <div class="card-container">
+
+      <!-- Faktor -->
+      <div class="info-card">
+        <h3>🌞 Faktor yang Memengaruhi</h3>
+        <ul>
+          <li>Intensitas panas matahari</li>
+          <li>Kelembapan udara</li>
+          <li>Angin (menggerakkan awan)</li>
+          <li>Kondisi lingkungan (deforestasi, pencemaran, eksploitasi air tanah)</li>
+        </ul>
+      </div>
+
+      <!-- Dampak -->
+      <div class="info-card">
+        <h3>💧 Dampak Siklus Air</h3>
+        <p><strong>Positif:</strong></p>
+        <ul>
+          <li>Menyuburkan tanah & tanaman</li>
+          <li>Menambah ketersediaan air tanah</li>
+          <li>Menjaga keseimbangan iklim</li>
+        </ul>
+        <p><strong>Negatif (jika terganggu):</strong></p>
+        <ul>
+          <li>Kekeringan</li>
+          <li>Banjir</li>
+          <li>Longsor</li>
+        </ul>
+      </div>
+
+      <!-- Pentingnya Air -->
+      <div class="info-card">
+        <h3>🌍 Pentingnya Air & Hujan</h3>
+        <ul>
+          <li>Air = sumber kehidupan (70% bumi, 60–85% tubuh manusia)</li>
+          <li>Hujan menyuburkan tanah & mendukung pertanian</li>
+          <li>Mengatur iklim & suhu bumi</li>
+          <li>Membersihkan udara dari polusi</li>
+          <li>Memberi ketenangan psikologis 🌧️</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Daftar Pustaka Section -->
+  <section class="pustaka-section">
+    <h2>Daftar Pustaka</h2>
+    <div class="pustaka-list">
+      <ol>
+        <li>Fatnur, M. Ardi., Abubakar, A., Irham, M., & Arbiyah, D. (2025). The Process of Rainfall from the Perspective of Tafsir Ilmi by the Kemenag RI and Science. <i>ARRUS Journal of Social Sciences and Humanities, 5(1)</i>. https://doi.org/10.35877/soshum3477</li>
+        <li>Rampo, A. (2019). Meningkatkan Hasil Belajar IPA Konsep Daur Air dan Peristiwa Alam Melalui Model Pembelajaran Talking Stick pada Murid Kelas IV SDN 130 Tokesan Kabupaten Tana’ Toraja. <i>Jurnal Pemikiran dan Pengembangan Pembelajaran, 1(3)</i>, 105–112.</li>
+        <li>Mau, J. A., & Manek, A. M. (2023). Peningkatan Hasil Belajar Tentang Proses Daur Air dengan Media Power Point Pada Siswa Kelas V SDI Loonuna Kecamatan Lamaknen Selatan Kabupaten Belu. <i>Journal Economic Education, Business and Accounting (JEEBA), 3(1)</i>, 95–100.</li>
+      </ol>
+    </div>
+  </section>
+</body>
+</html>
